@@ -8,13 +8,17 @@ contract Tally {
 
     event Count(string method, uint count, address caller);
 
+    function setCount(uint x) public {
+        count = x;
+    }
+
     function increase() public {
         ++count;
         emit Count('Increase', count, msg.sender);
     }
 
     function decrease() public {
-        --count;
+        count--;
         emit Count('Decrease', count, msg.sender);
     }
 
